@@ -1,0 +1,30 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Unit price</th>
+                <th>Total price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let item of cart$ | async">
+                <td>{{item.name}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.price | currency}}</td>
+                <td>{{item.quantity * item.price | currency}}</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+</div>
+
+<div>
+    <strong>
+        TOTAL:
+        <span>{{total$ | async | currency}}</span>
+    </strong>
+</div>

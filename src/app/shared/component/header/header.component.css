@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shoppingCart:hover{
+    cursor: pointer;
+    background-color: azure;
+    color: blue;
+    border-radius: 5px;
+}
+
+.title:visited{
+    color: azure;
+    text-decoration: none;
+}

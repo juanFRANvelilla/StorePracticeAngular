@@ -1,0 +1,9 @@
+<section class="products" >
+    <app-product 
+        (addToCartClick)="addToCart($event)"
+        (mostrarPrecio)="ejemploMostrarPrecio($event)"
+        *ngFor="let pro of products" 
+        [productSon]="pro">
+    </app-product> 
+</section>
+                             
