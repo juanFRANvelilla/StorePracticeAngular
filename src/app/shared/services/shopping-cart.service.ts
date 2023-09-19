@@ -1,4 +1,3 @@
-import { ObserversModule } from '@angular/cdk/observers';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from 'src/app/pages/products/interfaces/product.interface';

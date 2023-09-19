@@ -10,7 +10,7 @@ export class OrderService {
   constructor(private http: HttpClient) { }
   private apiUrl = 'http://localhost:3000/orders';
   putOrder(order: Order): Observable<Order>{
-    return this.http.put<Order>(this.apiUrl, order);
+    return this.http.post<Order>(this.apiUrl, order);
   }
 
   getOrders():Observable<Order[]>{
