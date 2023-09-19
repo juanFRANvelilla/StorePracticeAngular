@@ -3,7 +3,7 @@
 </div>
 
 <div class="container">
-    <form (ngSubmit)="onSubmit()" #checkoutForm="ngForm">
+    <form #checkoutForm="ngForm">
         <mat-form-field>
             <input matInput
              placeholder="Name" 
@@ -15,45 +15,52 @@
         <mat-radio-group>
             <p>Choose: </p>
             <mat-radio-button value="pickup"
-            (change) = "pickupOrDelivery(false)">
+            (change) = "pickupOrDelivery(true)">
                 PICKUP
             </mat-radio-button>
             <mat-radio-button value="delivery"
-            (change) = "pickupOrDelivery(true)">
+            (change) = "pickupOrDelivery(false)">
                 DELIVERY
             </mat-radio-button>
 
         </mat-radio-group>
         <br>
-        <mat-form-field>
-            <input matInput
-            placeholder="Shopping Address"
-            [(ngModel)]="model.shoppingAddress"
-            name="sAdress"
-            #shoppingAaddress="ngModel">
-        </mat-form-field>
+        
+        <ng-container *ngIf="!isPickup, else showStores">
+            <mat-form-field>
+                <input matInput
+                placeholder="Shopping Address"
+                [(ngModel)]="model.shippingAddress"
+                name="shippingAddress"
+                #shippingAaddress="ngModel">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput
+                placeholder="City"
+                [(ngModel)]="model.city"
+                name="city"
+                #city="ngModel">
+            </mat-form-field>
+            <br>
+        </ng-container>
+        <ng-template #showStores>
+            <mat-form-field>
+                <mat-label>Select</mat-label>
+                <mat-select 
+                name ="store"
+                #store="ngModel"
+                [(ngModel)]="model.store">
+                    <mat-option [value] = "store.name" *ngFor="let store of stores">
+                        {{store.name}} - {{store.openingHours}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </ng-template>
+        
+        
         <br>
-        <mat-form-field>
-            <input matInput
-            placeholder="City"
-            [(ngModel)]="model.city"
-            name="city"
-            #city="ngModel">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <mat-label>Select</mat-label>
-            <mat-select 
-            name ="store"
-            #store="ngModel"
-            [(ngModel)]="model.store">
-            <mat-option [value] = "store" *ngFor="let store of stores">
-                {{store.name}} - {{store.openingHours}}
-            </mat-option>
-        </mat-select>
-        </mat-form-field>
-        <br>
-        <button [disabled]="!checkoutForm.form.valid" color="primary" type="submit">
+        <button [disabled]="!checkoutForm.form.valid" color="primary" type="submit" (click)="onSubmit()">
             Checkout
         </button>
     </form>

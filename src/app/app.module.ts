@@ -9,6 +9,7 @@ import { MaterialModule } from './material.module';
 import { HeaderComponent } from './shared/component/header/header.component';
 import {HttpClientModule} from "@angular/common/http"
 import { CartComponentComponent } from './shared/component/cart/cart-component/cart-component.component';
+import { ExampleSharedComponentComponent } from './shared/component/example-shared-component/example-shared-component.component';
 
 @NgModule({
   declarations: [

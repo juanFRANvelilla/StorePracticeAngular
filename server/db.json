@@ -121,9 +121,10 @@
         "id": 1,
         "name": "Dominicode",
         "date": "01/12/1995",
+        "store": "",
         "shippingAddress": "Av. de la Granvia de Hospitalet, 115",
         "city": "Barcelona",
-        "pickup": true
+        "pickup": false
       }
     ],
     "detailsOrders": [
