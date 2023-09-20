@@ -28,6 +28,6 @@ export class ProductsComponent implements OnInit{
   }
 
   ejemploMostrarPrecio(price: number): void{
-    console.log('el ejemplo del precio es ->' + price)
+    console.log('el ejemplo del precio es -> ' + price)
   }
 }  

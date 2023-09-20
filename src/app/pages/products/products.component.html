@@ -2,9 +2,9 @@
     <app-example-shared-component></app-example-shared-component>
     <h1>List of products: </h1>
     <app-product 
+        *ngFor="let pro of products"
         (addToCartClick)="addToCart($event)"
-        (mostrarPrecio)="ejemploMostrarPrecio($event)"
-        *ngFor="let pro of products" 
+        (mostrarPrecio)="ejemploMostrarPrecio($event)" 
         [productSon]="pro">
     </app-product> 
 </section>

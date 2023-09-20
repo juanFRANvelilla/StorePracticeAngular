@@ -119,8 +119,8 @@
   "orders": [
     {
       "id": 1,
-      "name": "juanfran",
-      "date": "19/9/2023",
+      "name": "juan",
+      "date": "20/9/2023",
       "store": "Chambers and West Broadway",
       "shoppingAddress": "",
       "city": "",
@@ -128,8 +128,35 @@
     },
     {
       "id": 2,
-      "name": "sfasdf",
-      "date": "19/9/2023",
+      "name": "juanfran",
+      "date": "20/9/2023",
+      "store": "Store Alcalá",
+      "shoppingAddress": "",
+      "city": "",
+      "pickup": true
+    },
+    {
+      "id": 3,
+      "name": "DSFF",
+      "date": "20/9/2023",
+      "store": "Chambers and West Broadway",
+      "shoppingAddress": "",
+      "city": "",
+      "pickup": true
+    },
+    {
+      "id": 4,
+      "name": "JUANFRANCISCO",
+      "date": "20/9/2023",
+      "store": "Chambers and West Broadway",
+      "shoppingAddress": "",
+      "city": "",
+      "pickup": true
+    },
+    {
+      "id": 5,
+      "name": "otroejemplo",
+      "date": "20/9/2023",
       "store": "Chambers and West Broadway",
       "shoppingAddress": "",
       "city": "",
@@ -140,14 +167,62 @@
     {
       "id": 1,
       "orderId": 1,
-      "quantity": 6,
+      "quantity": 2,
       "productName": "Essential TypeScript 4: From Beginner to Pro"
     },
     {
-      "id": 3,
+      "id": 2,
       "orderId": 1,
       "quantity": 1,
+      "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
+    },
+    {
+      "id": 3,
+      "orderId": 2,
+      "quantity": 4,
+      "productName": "Essential TypeScript 4: From Beginner to Pro"
+    },
+    {
+      "id": 4,
+      "orderId": 2,
+      "quantity": 2,
+      "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
+    },
+    {
+      "id": 5,
+      "orderId": 2,
+      "quantity": 1,
       "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
+    },
+    {
+      "id": 6,
+      "orderId": 3,
+      "quantity": 2,
+      "productName": "Essential TypeScript 4: From Beginner to Pro"
+    },
+    {
+      "id": 7,
+      "orderId": 3,
+      "quantity": 1,
+      "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
+    },
+    {
+      "id": 8,
+      "orderId": 4,
+      "quantity": 3,
+      "productName": "Essential TypeScript 4: From Beginner to Pro"
+    },
+    {
+      "id": 9,
+      "orderId": 4,
+      "quantity": 1,
+      "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
+    },
+    {
+      "id": 10,
+      "orderId": 5,
+      "quantity": 1,
+      "productName": "CL3 Rated High-Speed 4K HDMI Cable - 6 Feet"
     }
   ]
 }

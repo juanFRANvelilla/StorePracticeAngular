@@ -8,6 +8,7 @@ import { DetailsOrderService } from 'src/app/shared/services/details-order.servi
 import { DetailsOrders } from './interfaces/detailsOrders.class';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
 import { Product } from '../products/interfaces/product.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -15,10 +16,12 @@ import { Product } from '../products/interfaces/product.interface';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  [x: string]: any;
   constructor(private storesService: StoresService, 
     private orderService: OrderService,
     private detailsOrderService: DetailsOrderService,
-    private cartService:ShoppingCartService) {}
+    private cartService:ShoppingCartService,
+    private router: Router) {}
 
   isPickup!: boolean;
   private getCurrencyDate(){
@@ -84,7 +87,11 @@ export class CheckoutComponent implements OnInit {
           let detailsOrderAdd: DetailsOrders[] = this.createDetailsOrder(orderId, detailsOrderId);
           detailsOrderAdd.forEach((detailsOrder:DetailsOrders) => {
             this.detailsOrderService.postDetailsOrder(detailsOrder).pipe(
-              tap(res => console.log(res))
+              tap(res => {
+                console.log(res);
+                window.location.reload();
+                this.router.navigate(['/products'])
+              })
             )
             .subscribe();
           })
