@@ -6,10 +6,12 @@
     <form #checkoutForm="ngForm">
         <mat-form-field>
             <input matInput
-             placeholder="Name" 
-             required [(ngModel)]="model.name" 
-             name =name 
-             #name="ngModel">
+            required 
+            placeholder="Name" 
+            [(ngModel)]="model.name" 
+            name = name 
+            #name="ngModel"
+            >
 
         </mat-form-field>
         <mat-radio-group>
@@ -50,9 +52,9 @@
                 <mat-select 
                 name ="store"
                 #store="ngModel"
-                [(ngModel)]="model.store">
+                [(ngModel)]="model.store"> 
                     <mat-option [value] = "store.name" *ngFor="let store of stores">
-                        {{store.name}} - {{store.openingHours}}
+                        {{store.name}} & {{store.openingHours}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>

@@ -15,8 +15,8 @@ export class ProductsComponent implements OnInit{
   ngOnInit(): void {
     this.productService.getProducts()
       .pipe(
-        tap((products: Product[]) => {
-          this.products = products;
+        tap((xd: Product[]) => {
+          this.products = xd;
         })
       )
       .subscribe();

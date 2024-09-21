@@ -11,6 +11,8 @@ import {HttpClientModule} from "@angular/common/http"
 import { CartComponentComponent } from './shared/component/cart/cart-component/cart-component.component';
 import { ExampleSharedComponentComponent } from './shared/component/example-shared-component/example-shared-component.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,7 @@ import { ExampleSharedComponentComponent } from './shared/component/example-shar
     MaterialModule,
     HttpClientModule
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

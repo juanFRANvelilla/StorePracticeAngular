@@ -13,6 +13,7 @@ export class CartComponentComponent implements OnInit{
   quantity$ = this.shoppingCartService.quantitAction$;
   total$ = this.shoppingCartService.totalAction$;
   cart$ = this.shoppingCartService.cartAction$;
+  
   cart: Product[] = [];
 
   ngOnInit(): void {

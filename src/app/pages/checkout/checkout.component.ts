@@ -37,7 +37,9 @@ export class CheckoutComponent implements OnInit {
     city: '',
     pickup: false
   };
+
   stores: Store[] = [];
+
   ngOnInit() {
     this.isPickup = false;
     this.storesService.getStores()
@@ -55,14 +57,18 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(){
+    //guardas el nuevo order y obtienes su id
     let orderId$ = this.postOrder();
     console.log('order add')
+    //guardas el nuevo detalle
     this.postDetailsOrder(orderId$);
     
   }
 
+  //creas una lista de detalles para cada producto con su cantidad, y el id de la order
   private createDetailsOrder(orderId:number, detailsOrderId:number): DetailsOrders[]{
     let detailsOrders: DetailsOrders[] = [];
+    //obtiene la lista de productos
     this.cartService.cartAction$.subscribe((products:Product[]) => {
       products.forEach((product:Product) => {
         const detailsOrder = new DetailsOrders(
@@ -82,15 +88,19 @@ export class CheckoutComponent implements OnInit {
     let detailsOrderId: number;
     this.detailsOrderService.getDetailsOrders().pipe(
       map((detailsOrders:DetailsOrders[]) => {
+        //obtiene el id que corresponde para un nuevo detalle
         detailsOrderId = detailsOrders.length+1;
         orderId$.subscribe((orderId: number) =>{
+          //llama a la funcion que crea una lista de detalles
           let detailsOrderAdd: DetailsOrders[] = this.createDetailsOrder(orderId, detailsOrderId);
           detailsOrderAdd.forEach((detailsOrder:DetailsOrders) => {
+            //guarda el nuevo detalle
             this.detailsOrderService.postDetailsOrder(detailsOrder).pipe(
               tap(res => {
-                console.log(res);
-                window.location.reload();
-                this.router.navigate(['/products'])
+                console.log('detalle guardado', res);
+                this.router.navigate(['/products']);
+                this.cartService.deleteCart();
+                //falta vaciar carrito
               })
             )
             .subscribe();
@@ -113,18 +123,37 @@ export class CheckoutComponent implements OnInit {
     return order;
   }
   
+
   private postOrder(): Observable<number> {
     return this.orderService.getOrders()
       .pipe(
         map((orders: Order[]) => {
+          //retorna el id del order que se necesita
           const orderId = orders.length + 1;
+          // crea el nuevo order
           const newOrder = this.createOrder(orderId);
+          //postea el nuevo order
+          //devuelve el order guardado como un observable, entonces 
+          //puedes hacer .pipe para jugar con el observable y modificarlo
+          //despues con .suscribe vas a ver el valor actual del observable
+          //sin poder utilizarlo
           this.orderService.putOrder(newOrder)
             .pipe(
-              tap(res => console.log(res))
+              tap(res => {
+                console.log('Id sin sumar: ', res.id)
+                //sumamos el id para prueba
+                res.id++
+              })
             )
-            .subscribe();
-            console.log('id de la order: ' + orderId)
+            .subscribe(data => {
+              console.log('Id sumado: ', data.id)
+            });
+
+            // this.orderService.putOrder(newOrder)
+            //   .subscribe(data => {
+            //     console.log('Order guardado: ', data)
+            //   });
+            
           return orderId;
         })
       );

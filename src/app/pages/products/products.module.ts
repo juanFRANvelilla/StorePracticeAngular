@@ -6,6 +6,7 @@ import { ProductsComponent } from './products.component';
 import { ProductComponent } from './product/product.component';
 import { MaterialModule } from 'src/app/material.module';
 import { ExampleSharedComponentComponent } from 'src/app/shared/component/example-shared-component/example-shared-component.component';
+import { ExampleModule } from '../example/example.module';
 
 
 @NgModule({
